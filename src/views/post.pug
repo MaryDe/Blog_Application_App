@@ -1,0 +1,43 @@
+extends layout
+
+block content
+	body
+		#myTopnav.topnav
+			.right.hide-on-med-and-down
+				a.active: a(href='#') Home
+					a(href='/posts/user') My Posts
+					a(href='/posts') All Posts
+					a(href='/logout') Logout
+	
+		div.container
+			each user in users
+				if user.id === post.userId
+									ul
+										h3: li= post.title
+										li= post.body
+										li.chip By: #{user.username}
+										br
+			div
+				h3#commentFormView To comment my blog (click here)
+				form#Form(action='/comments' method='post')
+					textarea(minlength='5' rows="10" cols="25" name='body' placeholder='Enter your comment here' required)
+					input.btn(type='submit' value='Create Comment' id='submit')
+					input(type='hidden' name='postId' value=post.id)
+					br
+				h4 Comments:
+				each comment in post.comments
+					each user in users
+						if comment.postId === post.id
+							if comment.userId === user.id
+										#commentList
+												li #{comment.body}
+												li.chip - #{user.username}
+												br
+			script.
+				$( document ).ready(() => {
+					$('#Form').hide();
+					$('#commentFormView').click(() => {
+						$('#Form').fadeToggle(800);
+					})
+				});
+			script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")

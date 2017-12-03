@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		link(rel='stylesheet' type='text/css' href='../css/style1.css')
+	body
+		#myTopnav.topnav
+			.right.hide-on-med-and-down
+				if user
+					a.active: a(href='#') Home
+					a(href='/users/' + user.username) Profile
+					a(href='/posts/user') My Posts
+					a(href='/posts') All Posts
+					a(href='/logout') Logout
+					a.icon(href='javascript:void(0);', style='font-size:15px;', onclick='myFunction()') ☰
+				else
+					a(href='/register') Register Here
+	block content

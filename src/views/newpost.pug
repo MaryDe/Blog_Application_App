@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	br
+	div.container
+		h4 Create Your New Blog Post
+		form(action='/posts/new' method='post')
+			label title
+			br
+			input#title(minlength='3' name='title' placeholder='title' required)
+			br
+			label Enter your text here
+			br
+			textarea#body(minlength='5' rows="20" cols="50" name='body' placeholder='body' required)
+			br
+			input.btn(type='submit' value='Create Post' id='submit')
+			br
+	script.
+			function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+			x.className += " responsive";
+			} else {
+			x.className = "topnav";
+			}
+			}

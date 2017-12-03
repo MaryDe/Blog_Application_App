@@ -1,0 +1,29 @@
+{
+  "name": "blogapplication",
+  "version": "1.0.0",
+  "description": "Summary",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MD",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-session-sequelize": "^5.0.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.5",
+    "pg": "^7.1.0",
+    "pg-hstore": "^2.3.2",
+    "pug": "^2.0.0-rc.3",
+    "sequelize": "^4.4.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaryDe"
+  },
+  "keywords": [
+    "Blog"
+  ]
+}

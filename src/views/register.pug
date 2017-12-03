@@ -1,0 +1,32 @@
+doctype html
+html
+	head
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		link(rel='stylesheet' type='text/css' href='css/style.css')
+		link(rel='stylesheet' type='text/css' href='css/style1.css')
+	body
+		#myTopnav.topnav
+			.right.hide-on-med-and-down
+				a(href='/') Home
+				active: a(href='#') Register Here
+				
+		.login
+			form(action='/register', method='POST', autocomplete='off')
+				p.center username
+				input#username(type='username' placeholder='Username' name="username" required)
+				p.center email
+				input#email(type='username' name="email" placeholder='email' required)
+				p.center password
+				input#password(type='password' name="password" placeholder='password' required)
+				input(type='submit' value='submit' id='submit') 
+				.shadow
+		script.
+			function myFunction() {
+				var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") {
+				x.className += " responsive";
+				} else {
+				x.className = "topnav";
+				}
+				}

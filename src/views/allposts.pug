@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+	div.container
+		h2: a.black-text(href='/posts/new') Create New Post
+		if postList.length != 0
+				each post in postList
+					each postUser in users
+						if postUser.id === post.userId
+							div.row
+								div.col.s12
+									div.card.blue-grey.darken-1
+										div.card-content.white-text
+											ul
+												h3: a(href='/posts/' + post.id): li.white-text #{post.title}
+												li Click the title to view the post in more detail
+												li.chip Posted by: #{postUser.username}
+												br
+		else
+			h1 You have no blog yet!
+				br
+	script.
+		function myFunction() {
+		var x = document.getElementById("myTopnav");
+		if(x.className === "topnav") {
+		x.className += " responsive";
+		} 
+		else {
+		x.className = "topnav";
+		}
+		}

@@ -1,0 +1,19 @@
+extends layout
+
+block content	
+	div.container
+		h2 Welcome to your page #{user.username}
+		p “Successful blogging is not about one time hits. It’s about building a loyal following over time.
+		br
+		p ”First-time bloggers often chase the big spikes in traffic that come with a viral post or a big media mention. Then lightning finally strikes… and they come to realize that those surges in traffic are made up mostly of people who aren’t very engaged and who don’t stick around for very long.
+
+
+	script.
+			function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+			x.className += " responsive";
+			} else {
+			x.className = "topnav";
+			}
+			}

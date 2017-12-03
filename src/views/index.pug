@@ -1,0 +1,50 @@
+doctype html
+html
+	head
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		link(rel='stylesheet' type='text/css' href='css/style.css')
+		link(rel='stylesheet' type='text/css' href='css/style1.css')
+	body
+		#myTopnav.topnav
+			.right.hide-on-med-and-down
+				if user
+					a.active: a(href='#') Home
+					a(href='/users/' + user.username) Profile
+					a(href='/posts/user') My Posts
+					a(href='/posts') All Posts
+					a(href='/logout') Logout
+					a.icon(href='javascript:void(0);', style='font-size:15px;', onclick='myFunction()') ☰
+				else
+					a(href='/register') Register Here
+
+		.login
+			if user
+				h2 Welcome Bloggers!
+			else
+			
+				form(action='/login' method='post')
+					br
+					p.center username
+					input#username(type='username' placeholder='Username' name="username" required)
+					br
+					p.center password
+					input#password(type='password' name="password" placeholder='password' required)
+					a.forgot(href='#') forgot password?
+					br
+					br
+					input(type='submit', value='login' id='submit')
+					.shadow
+
+			h2#error-message= message
+			br
+			script.
+				function myFunction() {
+				var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") {
+				x.className += " responsive";
+				} else {
+				x.className = "topnav";
+				}
+				}
+				
