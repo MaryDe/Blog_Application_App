@@ -37,14 +37,12 @@ is a Promise that deletes your tables first, then recreates them. Use this if yo
 Later on, we'll learn about migrations, which will allow us to modify our tables without losing our data.
 
 
-MY DIAGRAM for PREPARATION BELOW:
-
-3 Tables:
+TABLE DIAGRAM for PREPARATION BELOW:(3 Tables:)
 Users - columns: id, username, email, password
 Posts - columns: id, title, body, userId
 Comments - columns: body, userID, postID
 
-Relationships:
+TABLE RELATIONSHIPS:
 User.hasMany(Posts);
 User.hasMany(Comments);
 Posts.hasMany(Comments);
@@ -52,18 +50,19 @@ Posts.belongsTo(User);
 Comments.belongsTo(User);
 Comments.belongsTo(Posts);
 
-Routes I will need:
-HTTP  | URL               | action
+RESTFUL Routes Configuration:
+(Reference week 4 day 16 http-request pdf page p4 )
+HTTP VERB  | 	URL               | action
 -----------------------------------
-GET   |         '/'       | display homepage/login form
-GET   |    '/register'    | display register form
-POST  |    '/register'    | register/create user
-GET   | '/users/:username'| show profile page with username in route
-POST  |    '/login'       | login the user, start session
-GET   |    '/logout'      | logout the user, destroy session
-GET   |    '/posts'       | display all posts
-GET   |    '/posts/new'   | display form to create new post
-POST  |    '/posts/new'   | create a new post and send to database
-GET   |    '/posts/user'  | get all posts belonging to logged in user only
-GET   | '/posts/:postId'  | display the post on a page with its id in URL
-POST  |   '/comments'     | create a new comment and send to database
+GET   		|         '/'       | display homepage/login form
+GET   		|    '/register'    | display register form
+POST  		|    '/register'    | register/create user
+GET   		| '/users/:username'| show profile page with username in route
+POST  		|    '/login'       | login the user, start session
+GET   		|    '/logout'      | logout the user, destroy session
+GET   		|    '/posts'       | display all posts
+GET   		|    '/posts/new'   | display form to create new post
+POST  		|    '/posts/new'   | create a new post and send to database
+GET   		|    '/posts/user'  | get all posts belonging to logged in user only
+GET   		| '/posts/:postId'  | display the post on a page with its id in URL
+POST  		|   '/comments'     | create a new comment and send to database

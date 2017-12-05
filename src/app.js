@@ -279,6 +279,6 @@ app.post('/comments', (req, res) => {
   };
 });
 
-const server = app.listen(3001, () => {
+const server = app.listen(3000, () => {
   console.log('Example app listening on port: ' + server.address().port);
 })
