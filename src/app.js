@@ -157,11 +157,12 @@ app.post('/login', (req, res) => {
                         res.redirect('/?message=' + encodeURIComponent("Invalid email or password.")); //if incorrect showing error to user
                     }
                 })
-                .catch((error) => {
+                
+        })
+        .catch((error) => {
                     console.error(error); //if any error occurs showing an invalid message to user
                     res.redirect('/?message=' + encodeURIComponent("Invalid email or password."));
                 });
-        });
 });
 app.get('/logout', (req, res) => {
     req.session.destroy(function(error) { //logging out user and destorying session
